@@ -22,8 +22,10 @@ BQ_PROJECT_ID = "etlproject-456806"
 BQ_DATASET_ID = "my_dataset"
 
 # Fully-qualified BigQuery table names
-BQ_PRODUCT_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.product"
-BQ_CUSTOMER_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.customer"
+BQ_PRODUCT_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_product"
+BQ_CUSTOMER_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_customer"
+BQ_SELLER_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_seller"
+BQ_ORDER_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_order"
 
 # Credentials JSON path
 GOOGLE_CREDENTIALS_PATH = r"E:\ETL\BigQueryETL\credentials\etlproject-456806-e2f687607c74.json"

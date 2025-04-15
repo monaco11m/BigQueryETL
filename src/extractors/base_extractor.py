@@ -3,5 +3,5 @@ import pandas as pd
 
 class BaseExtractor(ABC):
     @abstractmethod
-    def extract(dataset) -> pd.DataFrame:
+    def extract(self) -> pd.DataFrame:
         pass

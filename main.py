@@ -15,10 +15,7 @@ def main():
     transformed_product_df = transformer.transform(product_df)
 
     # LOAD
-    loader = BigQueryLoader(
-        credentials_path=config.GOOGLE_CREDENTIALS_PATH,
-        project_id=config.BQ_PROJECT_ID
-    )
+    loader = BigQueryLoader()
     loader.load(transformed_product_df, config.BQ_PRODUCT_TABLE)
 
 if __name__ == "__main__":

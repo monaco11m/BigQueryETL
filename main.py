@@ -6,8 +6,10 @@ import config
 
 def main():
     # EXTRACT
-    extractor = CsvExtractor(file_paths=[config.PRODUCT_CSV_PATH])
-    product_df = extractor.extract()
+    extractor = CsvExtractor(file_paths=config.DATA_PATHS)
+    dfs = extractor.extract()
+    product_df = dfs["product"]
+    print(product_df.head())  # just to test
 
     # TRANSFORM
     transformer = ProductTransformer()

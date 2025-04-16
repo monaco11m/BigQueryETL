@@ -1,4 +1,5 @@
-# config.py
+import os
+from dotenv import load_dotenv
 
 # CSV files
 PRODUCT_CSV_PATH = r"E:\ETL\BigQueryETL\data\product.csv"
@@ -17,9 +18,14 @@ DATA_PATHS = {
 }
 
 
+
+
+load_dotenv()
+
 # Google BigQuery configuration
-BQ_PROJECT_ID = "etlproject-456806"
-BQ_DATASET_ID = "my_dataset"
+BQ_PROJECT_ID = os.getenv("BQ_PROJECT_ID")
+BQ_DATASET_ID = os.getenv("BQ_DATASET_ID")
+GOOGLE_CREDENTIALS_PATH = os.getenv("GOOGLE_CREDENTIALS_PATH")
 
 # Fully-qualified BigQuery table names
 BQ_PRODUCT_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_product"
@@ -28,5 +34,4 @@ BQ_SELLER_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_seller"
 BQ_ORDER_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.dim_order"
 BQ_ORDER_DETAIL_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET_ID}.fact_order_detail"
 
-# Credentials JSON path
-GOOGLE_CREDENTIALS_PATH = r"E:\ETL\BigQueryETL\credentials\etlproject-456806-e2f687607c74.json"
+

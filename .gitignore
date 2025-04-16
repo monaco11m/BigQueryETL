@@ -8,6 +8,11 @@ __pycache__/
 venv/
 env/
 
+
+.env
+credentials/
+
+
 # Logs
 *.log
 

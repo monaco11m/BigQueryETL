@@ -1,12 +1,12 @@
 import pandas as pd
 from .base_transformer import BaseTransformer
 
-class SellerTransformer(BaseTransformer):
+class CustomerTransformer(BaseTransformer):
     
     def transform(self, df:pd.DataFrame) -> pd.DataFrame:
 
         df.replace("",pd.NA,inplace=True)
-        df = df.dropna(how=all)
+        df = df.dropna(how="all")
 
         #rename
         df = df.rename(columns={

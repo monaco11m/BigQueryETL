@@ -13,14 +13,70 @@ This project implements an ETL (Extract, Transform, Load) pipeline using Python 
 - `requirements.txt`: Lists the Python dependencies for the project.
 - `.gitignore`: Specifies files and directories that should be ignored by Git (e.g., credentials, environment files).
 
-## How to Run
 
-1. Clone this repository.
-2. Install the required dependencies by running:
-   ```bash
-   pip install -r requirements.txt
-   
-3. Make sure you have a .env file with the required environment variables, including the path to your Google BigQuery credentials.
+## 🚀 How to Run This Project
 
-4. Run the ETL process:
-   python main.py
+Follow these steps to set up and run the ETL locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2. Create and Activate a Virtual Environment
+
+#### Windows (PowerShell):
+
+```bash
+python -m venv venv
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+.\venv\Scripts\Activate.ps1
+```
+
+#### Windows (CMD):
+
+```cmd
+python -m venv venv
+venv\Scripts\activate.bat
+```
+
+#### macOS / Linux:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set Up Environment Variables
+
+Create a `.env` file in the root of the project with the following content:
+
+```env
+BQ_PROJECT_ID=your_project_id
+BQ_DATASET_ID=dwh_dataset
+GOOGLE_CREDENTIALS_PATH=E:/ETL/BigQueryETL/credentials/your-service-account.json
+```
+
+✅ Your .env and credentials/ folder are already included in .gitignore.
+
+### 5. Run the ETL Pipeline
+
+```bash
+python main.py
+```
+
+---
+
+## ✅ Notes
+
+- Make sure your credentials JSON file is not tracked by Git.
+- All sensitive info should go in the `.env` file (already in `.gitignore`).
+

@@ -10,7 +10,7 @@ class CustomerTransformer(BaseTransformer):
 
         #rename
         df = df.rename(columns={
-            "customer_zip_code_prefix","customer_zip_code"
+            "customer_zip_code_prefix" : "customer_zip_code"
         })
         
         df["customer_zip_code"] = pd.to_numeric(df["customer_zip_code"],errors="coerce").fillna(0).astype(int)

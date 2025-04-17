@@ -2,11 +2,11 @@ import os
 from dotenv import load_dotenv
 
 # CSV files
-PRODUCT_CSV_PATH = r"E:\ETL\BigQueryETL\data\product.csv"
-CUSTOMER_CSV_PATH = r"E:\ETL\BigQueryETL\data\customer.csv"
-ORDER_CSV_PATH = r"E:\ETL\BigQueryETL\data\order.csv"
-ORDERDETAIL_CSV_PATH = r"E:\ETL\BigQueryETL\data\order_detail.csv"
-SELLER_CSV_PATH = r"E:\ETL\BigQueryETL\data\seller.csv"
+PRODUCT_CSV_PATH = "gs://kaggle-dataset-raw/data/product.csv"
+CUSTOMER_CSV_PATH = "gs://kaggle-dataset-raw/data/customer.csv"
+ORDER_CSV_PATH = "gs://kaggle-dataset-raw/data/order.csv"
+ORDERDETAIL_CSV_PATH = "gs://kaggle-dataset-raw/data/order_detail.csv"
+SELLER_CSV_PATH = "gs://kaggle-dataset-raw/data/seller.csv"
 
 
 DATA_PATHS = {

@@ -2,7 +2,7 @@ import pandas as pd
 from google.cloud import bigquery
 from google.oauth2 import service_account
 from .base_loader import BaseLoader
-import config  # Asegúrate de que esté accesible en tu entorno PYTHONPATH
+import config  
 
 class BigQueryLoader(BaseLoader):
     def __init__(self):
@@ -20,6 +20,6 @@ class BigQueryLoader(BaseLoader):
         job = self.client.load_table_from_dataframe(
             df, table_name, job_config=job_config
         )
-        job.result()  # Espera a que termine el job
+        job.result()  # wait until job is finished
 
         print(f"Loaded {len(df)} rows into {table_name}")

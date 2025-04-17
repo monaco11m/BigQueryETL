@@ -17,9 +17,6 @@ DATA_PATHS = {
     "seller": SELLER_CSV_PATH
 }
 
-
-
-
 load_dotenv()
 
 # Google BigQuery configuration

@@ -2,6 +2,9 @@ import pandas as pd
 from unittest.mock import patch
 from src.extract.csv_extractor import CsvExtractor
 
+#output : "." is success, if faied then "F"
+#pytest -v for more detail
+
 def test_csv_extractor_with_valid_path():
 
     # create a a dictionary with key and path
@@ -24,5 +27,25 @@ def test_csv_extractor_with_valid_path():
         pd.testing.assert_frame_equal(result["product"], mock_df)#Is the DataFrame under "product" exactly equal to the mocked one we expected?
 
 
-    #output : "." is success, if faied then "F"
-    #pytest -v for more detail
+def test_csv_extractor_file_not_found(capfd):
+
+    file_paths = {"product": "fake_path/product.csv"}
+    extractor = CsvExtractor(file_paths)
+
+    result = extractor.extract()
+
+    # No DataFrame 
+    assert "product" not in result
+
+    # Check printed output
+    # out capture the error message and will validate if contains "File not found: fake_path/product.csv" exists in error message
+    out, _ = capfd.readouterr()
+    assert "File not found: fake_path/product.csv" in out
+
+
+def test_csv_extractor_empty_paths():
+    extractor = CsvExtractor({})
+    result = extractor.extract()
+
+    #Checks that the extract() method returns an empty dictionary if file_paths is an empty dictionary too. If there's nothing to extract, the output should be an empty dict
+    assert result == {}

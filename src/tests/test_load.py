@@ -1,4 +1,4 @@
-#import pytest
+import pytest
 from unittest.mock import MagicMock, patch
 import pandas as pd
 from src.load.bigquery_loader import BigQueryLoader

@@ -15,3 +15,4 @@
          "--allow-unauthenticated",
          "--set-env-vars=BQ_PROJECT_ID=kaggleetl,BQ_DATASET_ID=dwh_dataset"
        ]
+  logsBucket: gs://kaggle-deploy-logs

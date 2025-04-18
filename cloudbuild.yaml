@@ -1,18 +1,19 @@
- steps:
-   - name: "gcr.io/cloud-builders/gcloud"
-     args:
-       [
-         "functions", "deploy", "run_etl_process",
-         "--gen2",
-         "--runtime=python311",
-         "--entry-point=run_etl",
-         "--trigger-topic=etl-trigger-topic",
-         "--region=us-central1",
-         "--project=kaggleetl",
-         "--source=.",
-         "--memory=1GiB",
-         "--timeout=540s",
-         "--allow-unauthenticated",
-         "--set-env-vars=BQ_PROJECT_ID=kaggleetl,BQ_DATASET_ID=dwh_dataset"
-       ]
-  logsBucket: gs://kaggle-deploy-logs
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "functions", "deploy", "run_etl_process",
+        "--gen2",
+        "--runtime=python311",
+        "--entry-point=run_etl",
+        "--trigger-topic=etl-trigger-topic",
+        "--region=us-central1",
+        "--project=kaggleetl",
+        "--source=.",
+        "--memory=1GiB",
+        "--timeout=540s",
+        "--allow-unauthenticated",
+        "--set-env-vars=BQ_PROJECT_ID=kaggleetl,BQ_DATASET_ID=dwh_dataset"
+      ]
+
+logsBucket: gs://kaggle-deploy-logs
